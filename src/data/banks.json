@@ -1,0 +1,40 @@
+{
+  "transactionVolume": {
+    "daily": [8500, 9100, 8700, 9500, 10200, 9800, 10500],
+    "weekly": [62000, 65000, 68000, 71000, 73000, 76000, 78000, 81000],
+    "monthly": [240000, 255000, 270000, 285000, 300000, 315000]
+  },
+  "customerAcquisition": {
+    "daily": [120, 135, 118, 142, 156, 148, 162],
+    "weekly": [850, 920, 975, 1030, 1080, 1150, 1200, 1250],
+    "monthly": [3600, 3900, 4200, 4500, 4800, 5100]
+  },
+  "revenueGenerated": {
+    "daily": [32000, 34500, 33000, 36000, 38500, 37000, 39500],
+    "weekly": [230000, 245000, 255000, 265000, 275000, 290000, 300000, 310000],
+    "monthly": [950000, 1020000, 1080000, 1150000, 1210000, 1280000]
+  },
+  "activeMerchants": {
+    "small": 2200,
+    "medium": 850,
+    "large": 150
+  },
+  "fraudMetrics": {
+    "detectedFraud": [120, 105, 118, 98, 112, 108, 95],
+    "preventedLoss": [320000, 280000, 315000, 260000, 295000, 285000, 250000],
+    "suspiciousTransactions": [320, 290, 310, 275, 305, 295, 270]
+  },
+  "customerSatisfaction": {
+    "overall": 4.2,
+    "support": 4.0,
+    "usability": 4.3,
+    "reliability": 4.4
+  },
+  "topServices": [
+    { "name": "Credit Card Processing", "percentage": 40 },
+    { "name": "Debit Card Processing", "percentage": 30 },
+    { "name": "Digital Banking", "percentage": 15 },
+    { "name": "Mobile Payments", "percentage": 10 },
+    { "name": "Other", "percentage": 5 }
+  ]
+} 

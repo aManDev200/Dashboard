@@ -1,0 +1,40 @@
+{
+  "transactionVolume": {
+    "daily": [6800, 7200, 6900, 7500, 7800, 7400, 8100],
+    "weekly": [48000, 51000, 53000, 55000, 58000, 60000, 62000, 65000],
+    "monthly": [195000, 210000, 225000, 240000, 255000, 270000]
+  },
+  "customerEngagement": {
+    "daily": [15800, 16500, 15900, 17200, 18000, 17400, 18800],
+    "weekly": [110000, 115000, 120000, 125000, 130000, 135000, 140000, 145000],
+    "monthly": [440000, 470000, 500000, 530000, 560000, 590000]
+  },
+  "revenueGenerated": {
+    "daily": [42000, 44500, 43000, 46500, 48000, 46000, 50000],
+    "weekly": [295000, 310000, 320000, 335000, 345000, 360000, 375000, 390000],
+    "monthly": [1180000, 1260000, 1340000, 1420000, 1500000, 1580000]
+  },
+  "activeMerchants": {
+    "premium": 120,
+    "standard": 850,
+    "basic": 1250
+  },
+  "loyaltyMetrics": {
+    "newEnrollments": [850, 920, 880, 950, 1020, 980, 1050],
+    "activeUsers": [12500, 13100, 13800, 14500, 15200, 15900, 16600],
+    "redemptionRate": [0.18, 0.19, 0.18, 0.2, 0.21, 0.2, 0.22]
+  },
+  "customerSatisfaction": {
+    "overall": 4.3,
+    "rewards": 4.5,
+    "usability": 4.2,
+    "support": 4.1
+  },
+  "topProductCategories": [
+    { "name": "Electronics", "percentage": 30 },
+    { "name": "Apparel", "percentage": 25 },
+    { "name": "Home Goods", "percentage": 20 },
+    { "name": "Food & Beverage", "percentage": 15 },
+    { "name": "Other", "percentage": 10 }
+  ]
+} 
