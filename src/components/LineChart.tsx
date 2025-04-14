@@ -56,8 +56,8 @@ export default function LineChart({ title, labels, datasets, className = '' }: L
   };
 
   return (
-    <div className={`bg-white p-4 rounded-lg shadow ${className}`}>
-      <div className="h-64">
+    <div className={`chart-container ${className}`}>
+      <div className="chart-wrapper">
         <Line options={options} data={data} />
       </div>
     </div>

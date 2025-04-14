@@ -53,8 +53,8 @@ export default function DoughnutChart({
   };
 
   return (
-    <div className={`bg-white p-4 rounded-lg shadow ${className}`}>
-      <div className="h-64">
+    <div className={`chart-container ${className}`}>
+      <div className="chart-wrapper">
         <Doughnut options={options} data={chartData} />
       </div>
     </div>

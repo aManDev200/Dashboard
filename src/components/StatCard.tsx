@@ -15,26 +15,22 @@ interface StatCardProps {
 
 export default function StatCard({ title, value, change, icon, className = '' }: StatCardProps) {
   return (
-    <div className={`bg-white shadow rounded-lg p-5 overflow-hidden ${className}`}>
-      <div className="flex items-center justify-between">
+    <div className={`stat-card ${className}`}>
+      <div className="stat-content">
         <div>
-          <p className="text-sm font-medium text-gray-500 truncate">{title}</p>
-          <p className="mt-1 text-3xl font-semibold text-gray-900">{value}</p>
+          <p className="stat-title">{title}</p>
+          <p className="stat-value">{value}</p>
           {change && (
-            <div className="mt-1">
-              <span
-                className={`${
-                  change.isPositive ? 'text-green-600' : 'text-red-600'
-                } font-medium text-sm`}
-              >
+            <div className="stat-change">
+              <span className={change.isPositive ? 'change-positive' : 'change-negative'}>
                 {change.isPositive ? '+' : ''}
                 {change.value}%
               </span>
-              <span className="text-gray-500 text-sm ml-1">from previous period</span>
+              <span className="change-label">from previous period</span>
             </div>
           )}
         </div>
-        {icon && <div className="text-gray-400">{icon}</div>}
+        {icon && <div className="stat-icon">{icon}</div>}
       </div>
     </div>
   );

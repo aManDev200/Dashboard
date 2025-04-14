@@ -33,8 +33,8 @@ export default function BanksDashboard() {
 
   if (isLoading || !data) {
     return (
-      <div className="flex justify-center items-center h-64">
-        <div className="text-lg">Loading dashboard data...</div>
+      <div className="flex items-center justify-center" style={{ height: '256px' }}>
+        <div className="text-large">Loading dashboard data...</div>
       </div>
     );
   }
@@ -53,139 +53,159 @@ export default function BanksDashboard() {
   });
 
   return (
-    <div className="space-y-8">
-      <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">Banks Analytics Dashboard</h1>
-        <div className="text-sm text-gray-500">Banking Institutions Insights</div>
+    <div className="dashboard">
+      <div className="dashboard-header">
+        <h1 className="dashboard-title">Banks Analytics Dashboard</h1>
+        <div className="dashboard-subtitle">Banking Institutions Insights</div>
       </div>
 
       {/* Key Metrics */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="dashboard-grid">
         <StatCard 
           title="Total Transactions" 
           value={totalTransactions.toLocaleString()} 
           change={{ value: 4.2, isPositive: true }}
-          icon={<BuildingLibraryIcon className="h-10 w-10" />}
+          icon={<BuildingLibraryIcon className="icon" />}
         />
         <StatCard 
           title="New Customers" 
           value={totalCustomers.toLocaleString()} 
           change={{ value: 6.8, isPositive: true }}
-          icon={<UserPlusIcon className="h-10 w-10" />}
+          icon={<UserPlusIcon className="icon" />}
         />
         <StatCard 
           title="Revenue Generated" 
           value={`$${(totalRevenue / 1000).toFixed(2)}K`} 
           change={{ value: 3.5, isPositive: true }}
-          icon={<CurrencyDollarIcon className="h-10 w-10" />}
+          icon={<CurrencyDollarIcon className="icon" />}
         />
         <StatCard 
           title="Active Merchants" 
           value={totalMerchants.toLocaleString()} 
           change={{ value: 2.1, isPositive: true }}
-          icon={<ShieldCheckIcon className="h-10 w-10" />}
+          icon={<ShieldCheckIcon className="icon" />}
         />
       </div>
 
       {/* Charts */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <LineChart 
-          title="Daily Transaction Volume"
-          labels={dateLabels}
-          datasets={[
-            {
-              label: 'Transactions',
-              data: data.transactionVolume.daily,
-              borderColor: 'rgb(22, 163, 74)',
-              backgroundColor: 'rgba(22, 163, 74, 0.5)',
-            }
-          ]}
-        />
-        <LineChart 
-          title="Daily Customer Acquisition"
-          labels={dateLabels}
-          datasets={[
-            {
-              label: 'New Customers',
-              data: data.customerAcquisition.daily,
-              borderColor: 'rgb(59, 130, 246)',
-              backgroundColor: 'rgba(59, 130, 246, 0.5)',
-            }
-          ]}
-        />
+      <div className="chart-grid">
+        <div className="chart-section">
+          <h2 className="chart-section-title">Daily Transaction Volume</h2>
+          <div className="chart-tall">
+            <LineChart 
+              title=""
+              labels={dateLabels}
+              datasets={[
+                {
+                  label: 'Transactions',
+                  data: data.transactionVolume.daily,
+                  borderColor: 'rgb(22, 163, 74)',
+                  backgroundColor: 'rgba(22, 163, 74, 0.5)',
+                }
+              ]}
+            />
+          </div>
+        </div>
+        <div className="chart-section">
+          <h2 className="chart-section-title">Daily Customer Acquisition</h2>
+          <div className="chart-tall">
+            <LineChart 
+              title=""
+              labels={dateLabels}
+              datasets={[
+                {
+                  label: 'New Customers',
+                  data: data.customerAcquisition.daily,
+                  borderColor: 'rgb(59, 130, 246)',
+                  backgroundColor: 'rgba(59, 130, 246, 0.5)',
+                }
+              ]}
+            />
+          </div>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <LineChart 
-          title="Fraud Detection Metrics"
-          labels={dateLabels}
-          datasets={[
-            {
-              label: 'Detected Fraud (Cases)',
-              data: data.fraudMetrics.detectedFraud,
-              borderColor: 'rgb(244, 63, 94)',
-              backgroundColor: 'rgba(244, 63, 94, 0.5)',
-            },
-            {
-              label: 'Suspicious Transactions',
-              data: data.fraudMetrics.suspiciousTransactions,
-              borderColor: 'rgb(234, 179, 8)',
-              backgroundColor: 'rgba(234, 179, 8, 0.5)',
-            }
-          ]}
-        />
-        <DoughnutChart 
-          title="Top Banking Services"
-          labels={data.topServices.map(item => item.name)}
-          data={data.topServices.map(item => item.percentage)}
-          backgroundColor={[
-            'rgba(22, 163, 74, 0.7)',
-            'rgba(59, 130, 246, 0.7)',
-            'rgba(168, 85, 247, 0.7)',
-            'rgba(234, 179, 8, 0.7)',
-            'rgba(75, 85, 99, 0.7)'
-          ]}
-        />
+      <div className="chart-grid">
+        <div className="chart-section">
+          <h2 className="chart-section-title">Fraud Detection Metrics</h2>
+          <div className="chart-tall">
+            <LineChart 
+              title=""
+              labels={dateLabels}
+              datasets={[
+                {
+                  label: 'Detected Fraud (Cases)',
+                  data: data.fraudMetrics.detectedFraud,
+                  borderColor: 'rgb(244, 63, 94)',
+                  backgroundColor: 'rgba(244, 63, 94, 0.5)',
+                },
+                {
+                  label: 'Suspicious Transactions',
+                  data: data.fraudMetrics.suspiciousTransactions,
+                  borderColor: 'rgb(234, 179, 8)',
+                  backgroundColor: 'rgba(234, 179, 8, 0.5)',
+                }
+              ]}
+            />
+          </div>
+        </div>
+        <div className="chart-section">
+          <h2 className="chart-section-title">Top Banking Services</h2>
+          <div className="chart-tall">
+            <DoughnutChart 
+              title=""
+              labels={data.topServices.map(item => item.name)}
+              data={data.topServices.map(item => item.percentage)}
+              backgroundColor={[
+                'rgba(22, 163, 74, 0.7)',
+                'rgba(59, 130, 246, 0.7)',
+                'rgba(168, 85, 247, 0.7)',
+                'rgba(234, 179, 8, 0.7)',
+                'rgba(75, 85, 99, 0.7)'
+              ]}
+            />
+          </div>
+        </div>
       </div>
 
       {/* Customer Satisfaction & Merchant Distribution */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-xl font-semibold mb-4">Customer Satisfaction</h2>
-          <div className="grid grid-cols-2 gap-6">
-            <div className="flex flex-col items-center">
-              <div className="text-3xl font-bold text-blue-600">{data.customerSatisfaction.overall}/5</div>
-              <div className="text-sm text-gray-600 mt-1">Overall Satisfaction</div>
+      <div className="chart-grid">
+        <div className="chart-section">
+          <h2 className="chart-section-title">Customer Satisfaction</h2>
+          <div className="satisfaction-grid">
+            <div className="satisfaction-item">
+              <div className="satisfaction-value text-primary">{data.customerSatisfaction.overall}/5</div>
+              <div className="satisfaction-label">Overall Satisfaction</div>
             </div>
-            <div className="flex flex-col items-center">
-              <div className="text-3xl font-bold text-green-600">{data.customerSatisfaction.usability}/5</div>
-              <div className="text-sm text-gray-600 mt-1">Usability Rating</div>
+            <div className="satisfaction-item">
+              <div className="satisfaction-value text-success">{data.customerSatisfaction.usability}/5</div>
+              <div className="satisfaction-label">Usability Rating</div>
             </div>
-            <div className="flex flex-col items-center">
-              <div className="text-3xl font-bold text-purple-600">{data.customerSatisfaction.support}/5</div>
-              <div className="text-sm text-gray-600 mt-1">Support Quality</div>
+            <div className="satisfaction-item">
+              <div className="satisfaction-value text-info">{data.customerSatisfaction.support}/5</div>
+              <div className="satisfaction-label">Support Quality</div>
             </div>
-            <div className="flex flex-col items-center">
-              <div className="text-3xl font-bold text-yellow-600">{data.customerSatisfaction.reliability}/5</div>
-              <div className="text-sm text-gray-600 mt-1">System Reliability</div>
+            <div className="satisfaction-item">
+              <div className="satisfaction-value text-warning">{data.customerSatisfaction.reliability}/5</div>
+              <div className="satisfaction-label">System Reliability</div>
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-xl font-semibold mb-4">Active Merchant Distribution</h2>
-          <div className="grid grid-cols-3 gap-6">
-            <div className="text-center p-4 bg-blue-50 rounded-lg">
-              <div className="text-3xl font-bold text-blue-600">{data.activeMerchants.small}</div>
-              <div className="text-sm text-gray-600 mt-1">Small Businesses</div>
+        <div className="chart-section">
+          <h2 className="chart-section-title">Active Merchant Distribution</h2>
+          <div className="merchant-grid">
+            <div className="merchant-item bg-primary-light">
+              <div className="merchant-value text-primary">{data.activeMerchants.small}</div>
+              <div className="merchant-label">Small Businesses</div>
             </div>
-            <div className="text-center p-4 bg-green-50 rounded-lg">
-              <div className="text-3xl font-bold text-green-600">{data.activeMerchants.medium}</div>
-              <div className="text-sm text-gray-600 mt-1">Medium Businesses</div>
+            <div className="merchant-item bg-success-light">
+              <div className="merchant-value text-success">{data.activeMerchants.medium}</div>
+              <div className="merchant-label">Medium Businesses</div>
             </div>
-            <div className="text-center p-4 bg-purple-50 rounded-lg">
-              <div className="text-3xl font-bold text-purple-600">{data.activeMerchants.large}</div>
-              <div className="text-sm text-gray-600 mt-1">Large Enterprises</div>
+            <div className="merchant-item bg-info-light">
+              <div className="merchant-value text-info">{data.activeMerchants.large}</div>
+              <div className="merchant-label">Large Enterprises</div>
             </div>
           </div>
         </div>
